@@ -1,0 +1,16 @@
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+server:
+  tomcat:
+    uri:
+      encoding: UTF-8
+  port: 8899
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ./logs
