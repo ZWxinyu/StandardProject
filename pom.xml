@@ -12,6 +12,7 @@
     <module>standard-project-common</module>
     <module>standard-project-api</module>
     <module>standard-project-service</module>
+      <module>generator</module>
   </modules>
   <packaging>pom</packaging>
   <name>standardProject</name>
