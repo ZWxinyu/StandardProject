@@ -18,8 +18,10 @@ import java.time.LocalDateTime;
 
 /**
  *@Author xinyu
- *@Description  字典表vo实体类
  *@Date 10:29 2019/12/18
+ *@Description  字典表vo实体类
+ *  注意：
+ *      ①时间类型LocalDateTime,需要使用逐渐JsonFormat进行格式转换
  **/
 @Data
 //@Builder 可设置当前类使用创建者模式

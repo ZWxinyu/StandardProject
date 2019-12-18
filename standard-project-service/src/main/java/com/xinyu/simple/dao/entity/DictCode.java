@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 /**
  * <p>
  * 字典表
+ * 注意：
+ *      ①时间类型LocalDateTime,需要配置对应typeHandler，才能实现类型转换
  * </p>
  *
  * @author xinyu
