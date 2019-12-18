@@ -1,6 +1,9 @@
-package com.xinyu.simple.biz.entity;
+package com.xinyu.simple.dao.entity;
 
 import java.math.BigDecimal;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.time.LocalDateTime;
@@ -21,13 +24,14 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("t_dict_code")
-public class DictCode extends Model {
+public class DictCode extends Model<DictCode> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键id
      */
+    @TableId(value="id",type= IdType.AUTO)
     private Long id;
 
     /**

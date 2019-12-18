@@ -1,9 +1,9 @@
-package com.xinyu.simple.biz.service.impl;
+package com.xinyu.simple.service.impl;
 
+import com.xinyu.simple.dao.entity.DictCode;
+import com.xinyu.simple.dao.mapper.DictCodeMapper;
+import com.xinyu.simple.service.IDictCodeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xinyu.simple.biz.entity.DictCode;
-import com.xinyu.simple.biz.mapper.DictCodeMapper;
-import com.xinyu.simple.biz.service.IDictCodeService;
 import org.springframework.stereotype.Service;
 
 /**

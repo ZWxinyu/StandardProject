@@ -1,7 +1,7 @@
-package com.xinyu.simple.biz.mapper;
+package com.xinyu.simple.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xinyu.simple.biz.entity.DictCode;
+import com.xinyu.simple.dao.entity.DictCode;
 
 /**
  * <p>

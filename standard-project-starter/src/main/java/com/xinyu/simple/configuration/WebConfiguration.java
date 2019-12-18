@@ -4,6 +4,7 @@ import com.xinyu.simple.common.constant.WebConstants;
 import com.xinyu.simple.configuration.interceptor.HttpLogInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -28,11 +29,18 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
 
 
     //静态资源映射
-    /*@Override
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/dist/**").addResourceLocations("classpath:/static/dist/");
-        registry.addResourceHandler("/theme/**").addResourceLocations("classpath:/static/theme/");
-        registry.addResourceHandler("/store/**").addResourceLocations(getStorePath());
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
-    }*/
+    }
+    /**
+     * 配置servlet处理
+     */
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 }

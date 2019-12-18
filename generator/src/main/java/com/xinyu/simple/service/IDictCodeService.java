@@ -1,7 +1,7 @@
-package com.xinyu.simple.biz.service;
+package com.xinyu.simple.service;
 
+import com.xinyu.simple.dao.entity.DictCode;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xinyu.simple.biz.entity.DictCode;
 
 /**
  * <p>
