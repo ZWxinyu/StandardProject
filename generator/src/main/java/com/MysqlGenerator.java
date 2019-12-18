@@ -1,5 +1,6 @@
 package com;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -21,23 +22,15 @@ import java.util.Scanner;
  **/
 public class MysqlGenerator {
     /**
-     * <p>
-     * 读取控制台内容
-     * </p>
-     */
-    public static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
-        StringBuilder help = new StringBuilder();
-        help.append("请输入" + tip + "：");
-        System.out.println(help.toString());
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNotEmpty(ipt)) {
-                return ipt;
-            }
-        }
-        throw new MybatisPlusException("请输入正确的" + tip + "！");
-    }
+     *  注意：生成的entity文件，需要修改3个地方：
+     *      ①@EqualsAndHashCode(callSuper = true),改成false；
+     *      ②父类Model，制定泛型对象为实体自己；
+     *      ③主键字段添加注解：@TableId(value="id",type= IdType.AUTO)
+     **/
+    private static final String classPath = "/generator/src/main/java";
+    private static final String parentPackage = "com.xinyu.simple.biz";
+    private static final String xmlClassPath = "/generator/src/main/resources/mapper";
+    private static final String[] tables = {"t_dict_code"};
 
     public static void main(String[] args) {
         // 代码生成器
@@ -46,25 +39,29 @@ public class MysqlGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("jobob");
+        gc.setOutputDir(projectPath + classPath);
+        gc.setAuthor("xinyu");
         gc.setOpen(false);
-        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        gc.setSwagger2(false); //实体属性 Swagger2 注解
+        gc.setFileOverride(true);//是否覆盖同名文件，默认false
+        gc.setBaseResultMap(true);
+        gc.setBaseColumnList(true);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/ant?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://192.168.145.128:3306/xinyu_test?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setDbType(DbType.MYSQL);
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("密码");
+        dsc.setPassword("xinyu2");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.baomidou.ant");
+        pc.setModuleName("");
+        pc.setParent(parentPackage);
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -87,7 +84,7 @@ public class MysqlGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + xmlClassPath + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -110,9 +107,7 @@ public class MysqlGenerator {
         // 配置自定义输出模板
         //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
         // templateConfig.setEntity("templates/entity2.java");
-        // templateConfig.setService();
-        // templateConfig.setController();
-
+        templateConfig.setController(null);
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
 
@@ -120,16 +115,16 @@ public class MysqlGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        // 公共父类
-        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
-        // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
+        // 公共父类
+        strategy.setSuperEntityClass("com.baomidou.mybatisplus.extension.activerecord.Model");
+        //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
+        // 写于父类中的公共字段
+        //strategy.setSuperEntityColumns("id");
+        strategy.setInclude(tables);
+        strategy.setTablePrefix(new String[]{"t_"});
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

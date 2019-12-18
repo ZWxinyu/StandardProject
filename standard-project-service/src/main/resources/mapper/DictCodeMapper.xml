@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinyu.simple.biz.mapper.DictCodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xinyu.simple.biz.entity.DictCode">
+    <result column="id" property="id" />
+        <result column="dictCode" property="dictCode" />
+        <result column="dictName" property="dictName" />
+        <result column="codeLen" property="codeLen" />
+        <result column="isTree" property="isTree" />
+        <result column="memo" property="memo" />
+        <result column="sortOrder" property="sortOrder" />
+        <result column="createBy" property="createBy" />
+        <result column="updateBy" property="updateBy" />
+        <result column="createTime" property="createTime" />
+        <result column="updateTime" property="updateTime" />
+        <result column="VERSION" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        dictCode, dictName, codeLen, isTree, memo, sortOrder, createBy, updateBy, createTime, updateTime, VERSION
+    </sql>
+
+</mapper>
