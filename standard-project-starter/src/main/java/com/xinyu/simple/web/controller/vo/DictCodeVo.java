@@ -1,5 +1,6 @@
 package com.xinyu.simple.web.controller.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xinyu.simple.common.utils.ValidateUtil;
 import com.xinyu.simple.common.vo.ValidationResult;
 import io.swagger.annotations.ApiModel;
@@ -52,9 +53,11 @@ public class DictCodeVo{
     private Long updateBy;
 
     @ApiModelProperty("创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
     @ApiModelProperty("更新时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
 
     @ApiModelProperty("版本号")
