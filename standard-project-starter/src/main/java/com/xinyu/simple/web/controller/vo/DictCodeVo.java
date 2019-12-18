@@ -1,11 +1,16 @@
 package com.xinyu.simple.web.controller.vo;
 
+import com.xinyu.simple.common.utils.ValidateUtil;
+import com.xinyu.simple.common.vo.ValidationResult;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -54,5 +59,4 @@ public class DictCodeVo{
 
     @ApiModelProperty("版本号")
     private Integer version;
-
 }

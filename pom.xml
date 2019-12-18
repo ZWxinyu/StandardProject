@@ -161,6 +161,13 @@
         <version>28.1-jre</version>
       </dependency>
 
+      <!-- hibernate校验器 -->
+      <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>6.1.0.Final</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
