@@ -25,8 +25,13 @@ import java.util.List;
 
 /**
  *@Author xinyu
- *@Description  swagger2接口说明配置类
  *@Date 10:58 2019/12/18
+ *@Description  swagger2接口说明配置类
+ *      ①、引入依赖springfox-swagger2   springfox-swagger-ui   guava
+ *      ②、创建此SwaggerConfiguration配置类
+ *      ③、WebConfiguration类中，配置静态资源映射，配置servlet处理
+ *      ④、controller类，使用注解：@Api  @ApiOperation @ApiImplicitParams  @ApiImplicitParam
+ *      ⑤、接口实体类，使用注解：@ApiModel  @ApiModelProperty
  **/
 @Configuration
 @EnableSwagger2

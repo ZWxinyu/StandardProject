@@ -2,6 +2,7 @@ package com.xinyu.simple.web.controller.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  *@Date 10:29 2019/12/18
  **/
 @Data
+//@Builder 可设置当前类使用创建者模式
 @ApiModel(value = "数据字典返回vo类",description = "数据字典")
 public class DictCodeVo{
     @ApiModelProperty("主键id")
