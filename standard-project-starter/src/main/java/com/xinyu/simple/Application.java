@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication(scanBasePackages = {"com.xinyu.simple"})
-@EnableTransactionManagement
-@MapperScan("com.xinyu.simple.**.dao")
+@EnableTransactionManagement//开启spring申明式事务管理，需要事务的方法使用注解：@Transactional
+@MapperScan("com.xinyu.simple.**.dao")//mybatis扫描mapper接口文件
 public class Application {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
     public static void main(String[] args) {

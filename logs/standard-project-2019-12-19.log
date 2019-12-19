@@ -1,0 +1,20 @@
+2019-12-19 11:29:50.612 [main] INFO  com.xinyu.simple.Application - Starting Application on DESKTOP-BHFJGM6 with PID 6444 (E:\java_workspace\workspace2\StandardProject\standard-project-starter\target\classes started by xinyu in E:\java_workspace\workspace2\StandardProject)
+2019-12-19 11:29:50.618 [main] INFO  com.xinyu.simple.Application - No active profile set, falling back to default profiles: default
+2019-12-19 11:29:52.398 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-19 11:29:52.398 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-12-19 11:29:52.476 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46ms. Found 0 repository interfaces.
+2019-12-19 11:29:53.101 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-19 11:29:54.468 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8899 (http)
+2019-12-19 11:29:54.483 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8899"]
+2019-12-19 11:29:54.483 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-19 11:29:54.483 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-12-19 11:29:54.676 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-19 11:29:54.676 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3934 ms
+2019-12-19 11:29:56.002 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-19 11:29:57.176 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-12-19 11:29:57.207 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-12-19 11:29:57.270 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-12-19 11:29:57.691 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8899"]
+2019-12-19 11:29:57.738 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8899 (http) with context path ''
+2019-12-19 11:29:57.754 [main] INFO  com.xinyu.simple.Application - Started Application in 8.72 seconds (JVM running for 9.874)
+2019-12-19 11:29:57.754 [main] INFO  com.xinyu.simple.Application - 程序启动成功

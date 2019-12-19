@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>standard_project</contextName>
-    <property name="LOG_FILE" value="${LOG-PATH}/standard_project" />
+
+    <springProperty scope="context" name="LOG_PATH" source="logging.path"/><!-- 此标签从application.yml文件读取配置 -->
+    <property name="LOG_FILE" value="/standard-project" />
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -15,7 +17,7 @@
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>${LOG_FILE}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_PATH}${LOG_FILE}-%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
@@ -30,8 +32,9 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- 日志输出级别 -->
+    <!-- 日志输出级别 INFO DEBUG-->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>
