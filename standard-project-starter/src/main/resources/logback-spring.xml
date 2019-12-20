@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ logback日志引入：
+    ①springboot默认自带logback日志框架，如果没有引入依赖logback-classic;
+    ②application文件配置logging.config,如果不配置默认读取resource下的logback-spring.xml文件
+    ③创建logbac-spring.xml并进行配置
+ -->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>standard_project</contextName>
-
-    <springProperty scope="context" name="LOG_PATH" source="logging.path"/><!-- 此标签从application.yml文件读取配置 -->
+    <springProperty scope="context" name="LOG_PATH" source="logging.path"/><!-- 此标签从application.yml文件读取配置，设置日志文件存放在哪个位置 -->
     <property name="LOG_FILE" value="/standard-project" />
 
     <!-- 控制台输出 -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
@@ -32,9 +37,18 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- 日志输出级别 INFO DEBUG-->
+    <!-- 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为WARN，则低于WARN的信息都不会输出，大小写无关-->
     <root level="INFO">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
     </root>
+
+    <!--生产环境:输出到文件-->
+    <springProfile name="pro">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
+        </root>
+    </springProfile>
+
 </configuration>

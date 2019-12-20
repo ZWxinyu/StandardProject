@@ -40,9 +40,7 @@ public class DictCodeController {
     @Autowired
     private IDictCodeService dictCodeService;
 
-    /*
-     *
-     */
+    /*redis引入步骤：①添加redis依赖；②配置application文件；③注入StringRedisTemplate对象*/
     @Autowired
     private StringRedisTemplate redisTemplate;
 
@@ -56,18 +54,19 @@ public class DictCodeController {
         if(form==null || StringUtils.isBlank(form.getDictCode()))
             return ResponseVo.failResponse("409","参数异常");
 
-        //调用业务层
-        List<DictCodeDto> dictCodeDtos = dictCodeService.queryByCode(form.getDictCode());
-        List<DictCodeVo> voList = new ArrayList<>();
-        if(dictCodeDtos!=null && dictCodeDtos.size()>0){
-            dictCodeDtos.forEach(dto -> {
-                DictCodeVo vo = new DictCodeVo();
-                BeanUtils.copyProperties(dto,vo);
-                voList.add(vo);
-            });
-        }
         String value = redisTemplate.opsForValue().get(REDIS_KE_PREF + form.getDictCode());
         if(StringUtils.isBlank(value)){
+            //调用业务层
+            List<DictCodeDto> dictCodeDtos = dictCodeService.queryByCode(form.getDictCode());
+            List<DictCodeVo> voList = new ArrayList<>();
+            if(dictCodeDtos!=null && dictCodeDtos.size()>0){
+                dictCodeDtos.forEach(dto -> {
+                    DictCodeVo vo = new DictCodeVo();
+                    BeanUtils.copyProperties(dto,vo);
+                    voList.add(vo);
+                });
+            }
+            //数据缓存至redis
             value = JSON.toJSONString(voList);
             redisTemplate.opsForValue().set(REDIS_KE_PREF + form.getDictCode(), value);
         }
