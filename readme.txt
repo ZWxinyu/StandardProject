@@ -1,7 +1,7 @@
 一、项目整体结构，maven管理
     框架：springboot（spring+springmvc）、mybatisPlus（基于mybatis）
     依赖组件：mysql、redis、nexus
-    包含：swagger2、logback、分页插件
+    包含：swagger2、logback
     module关系：
         ①父pom项目包括：配置公共依赖包、管理子module依赖包版本、管理子module插件
         ②standard-project-common：包含一些通用常量枚举、util类、自定义通用Exception、通用dto等
