@@ -39,16 +39,16 @@ public class DictCodeVo implements Serializable{
     private String dictName;
 
     @ApiModelProperty("字典编码长度")
-    private BigDecimal codeLen;
+    private Short codeLen;
 
     @ApiModelProperty("是否树形")
-    private Long isTree;
+    private Short isTree;
 
     @ApiModelProperty("备注")
     private String memo;
 
     @ApiModelProperty("排序值，一般值越小，越靠前")
-    private Long sortOrder;
+    private Short sortOrder;
 
     @ApiModelProperty("创建人")
     private Long createBy;
@@ -65,5 +65,5 @@ public class DictCodeVo implements Serializable{
     private LocalDateTime updateTime;
 
     @ApiModelProperty("版本号")
-    private Integer version;
+    private Short version;
 }

@@ -43,12 +43,12 @@ public class DictCodeDto implements Serializable {
     /**
      * 字典编码长度
      */
-    private BigDecimal codeLen;
+    private Short codeLen;
 
     /**
      * 是否树形
      */
-    private Long isTree;
+    private Short isTree;
 
     /**
      * 备注
@@ -58,7 +58,7 @@ public class DictCodeDto implements Serializable {
     /**
      * 排序值，一般值越小，越靠前
      */
-    private Long sortOrder;
+    private Short sortOrder;
 
     /**
      * 创建人
@@ -83,6 +83,6 @@ public class DictCodeDto implements Serializable {
     /**
      * 版本号
      */
-    private Integer version;
+    private Short version;
 
 }

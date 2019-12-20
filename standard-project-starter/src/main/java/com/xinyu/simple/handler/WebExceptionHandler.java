@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *@Author xinyu
- *@Description controller层统一异常捕获处理类（spring切面技术）
  *@Date 16:24 2019/12/17
+ *@Description controller层统一异常捕获处理类（spring切面技术）
  **/
 @ControllerAdvice(basePackages = {"com.xinyu.simpler.web"})
 public class WebExceptionHandler {

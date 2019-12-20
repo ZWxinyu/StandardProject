@@ -52,13 +52,13 @@ public class DictCode extends Model<DictCode> {
      * 字典编码长度
      */
     @TableField("codeLen")
-    private BigDecimal codeLen;
+    private Short codeLen;
 
     /**
      * 是否树形
      */
     @TableField("isTree")
-    private Long isTree;
+    private Short isTree;
 
     /**
      * 备注
@@ -69,7 +69,7 @@ public class DictCode extends Model<DictCode> {
      * 排序值，一般值越小，越靠前
      */
     @TableField("sortOrder")
-    private Long sortOrder;
+    private Short sortOrder;
 
     /**
      * 创建人
@@ -99,7 +99,7 @@ public class DictCode extends Model<DictCode> {
      * 版本号
      */
     @TableField("VERSION")
-    private Integer version;
+    private Short version;
 
 
 }

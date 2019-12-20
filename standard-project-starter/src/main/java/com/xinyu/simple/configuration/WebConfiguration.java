@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 /**
  *@Author xinyu
- *@Description 应用配置类
+ *@Description springMVC相关组件配置类
  *@Date 18:05 2019/12/17
  **/
 @Configuration
