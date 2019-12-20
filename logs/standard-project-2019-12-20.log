@@ -881,3 +881,5 @@ java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable pa
 2019-12-20 16:04:30.947 [http-nio-8899-exec-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
 2019-12-20 16:04:32.775 [http-nio-8899-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
 2019-12-20 16:04:33.559 [http-nio-8899-exec-1] INFO  c.x.s.configuration.interceptor.HttpLogInterceptor - ----------->clientip#0:0:0:0:0:0:0:1 gcid# POST application/json request for [/dictCode/queryDictBycode] processing done time#3,028ms status#200
+2019-12-20 16:37:36.025 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2019-12-20 16:37:36.029 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
