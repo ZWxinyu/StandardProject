@@ -1,5 +1,7 @@
 package com.xinyu.simple.web.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.xinyu.simple.common.constant.WebConstants;
 import com.xinyu.simple.common.vo.ResponseVo;
 import com.xinyu.simple.service.IDictCodeService;
@@ -13,6 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,12 +33,24 @@ import java.util.List;
 @Api("数据字典controller类")
 public class DictCodeController {
     private static final Logger logger = LoggerFactory.getLogger(DictCodeController.class);
+
+    //redis存储key，使用冒号隔开，方便按照文件夹的方式管理key
+    private static final String REDIS_KE_PREF = "standardProject:dictCOde:";
+
     @Autowired
     private IDictCodeService dictCodeService;
+
+    /*
+     *
+     */
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
 
     @PostMapping("/queryDictBycode")
     @ResponseBody
     @ApiOperation("根据编码查询字典数据")
+    @Cacheable(cacheNames = {"queryDictBycode"},key = "#form.dictCode")
     public ResponseVo<List<DictCodeVo>> queryDictBycode(@RequestBody QueryForm form, HttpServletRequest request){
         //先对参数进行校验
         if(form==null || StringUtils.isBlank(form.getDictCode()))
@@ -50,6 +66,12 @@ public class DictCodeController {
                 voList.add(vo);
             });
         }
-        return ResponseVo.successResponse(voList);
+        String value = redisTemplate.opsForValue().get(REDIS_KE_PREF + form.getDictCode());
+        if(StringUtils.isBlank(value)){
+            value = JSON.toJSONString(voList);
+            redisTemplate.opsForValue().set(REDIS_KE_PREF + form.getDictCode(), value);
+        }
+        List<DictCodeVo> dictCodeVos = JSON.parseArray(value, DictCodeVo.class);
+        return ResponseVo.successResponse(dictCodeVos);
     }
 }

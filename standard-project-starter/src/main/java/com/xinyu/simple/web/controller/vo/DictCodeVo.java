@@ -26,7 +26,9 @@ import java.time.LocalDateTime;
 @Data
 //@Builder 可设置当前类使用创建者模式
 @ApiModel(value = "数据字典返回vo类",description = "数据字典")
-public class DictCodeVo{
+public class DictCodeVo implements Serializable{
+
+    private static final long serialVersionUID = 3285117054927403319L;
     @ApiModelProperty("主键id")
     private Long id;
 

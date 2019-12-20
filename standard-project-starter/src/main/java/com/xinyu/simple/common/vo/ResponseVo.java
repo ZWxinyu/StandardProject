@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,8 @@ import java.util.List;
  **/
 @Data
 @ApiModel(description = "接口返回VO")
-public class ResponseVo<V> {
+public class ResponseVo<V> implements Serializable {
+    private static final long serialVersionUID = 50355161995362693L;
     @ApiModelProperty(value = "异常code",example="null")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String errorCOde="0";

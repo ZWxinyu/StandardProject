@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,7 @@ public class DictCodeServiceImpl implements IDictCodeService {
 
     @Override
     @Transactional
+    @Cacheable(cacheNames = {"dictCode"},key = "#dictCode")
     public List<DictCodeDto> queryByCode(String dictCode) {
         if(StringUtils.isBlank(dictCode))
             return null;

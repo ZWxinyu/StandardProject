@@ -18,3 +18,4 @@
 2019-12-19 11:29:57.738 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8899 (http) with context path ''
 2019-12-19 11:29:57.754 [main] INFO  com.xinyu.simple.Application - Started Application in 8.72 seconds (JVM running for 9.874)
 2019-12-19 11:29:57.754 [main] INFO  com.xinyu.simple.Application - 程序启动成功
+2019-12-19 17:34:44.239 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-0} closing ...
