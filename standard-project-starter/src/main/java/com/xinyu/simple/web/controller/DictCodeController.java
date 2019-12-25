@@ -2,6 +2,7 @@ package com.xinyu.simple.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.xinyu.simple.common.constant.NoLogin;
 import com.xinyu.simple.common.constant.WebConstants;
 import com.xinyu.simple.common.vo.ResponseVo;
 import com.xinyu.simple.service.IDictCodeService;
@@ -49,6 +50,7 @@ public class DictCodeController {
     @ResponseBody
     @ApiOperation("根据编码查询字典数据")
     @Cacheable(cacheNames = {"queryDictBycode"},key = "#form.dictCode")
+    @NoLogin
     public ResponseVo<List<DictCodeVo>> queryDictBycode(@RequestBody QueryForm form, HttpServletRequest request){
         //先对参数进行校验
         if(form==null || StringUtils.isBlank(form.getDictCode()))

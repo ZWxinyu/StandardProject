@@ -1,6 +1,7 @@
 package com.xinyu.simple.configuration;
 
 import com.xinyu.simple.common.constant.WebConstants;
+import com.xinyu.simple.configuration.interceptor.AuthInterceptor;
 import com.xinyu.simple.configuration.interceptor.HttpLogInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -18,11 +19,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 public class WebConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     private HttpLogInterceptor httpLogInterceptor;
+    @Autowired
+    private AuthInterceptor authInterceptor;
 
     //配置拦截器
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(httpLogInterceptor).addPathPatterns(WebConstants.API_PREFIX+"/**");
+        registry.addInterceptor(authInterceptor).addPathPatterns(WebConstants.API_PREFIX+"/**");
 
         super.addInterceptors(registry);
     }
