@@ -38,7 +38,7 @@
     </appender>
 
     <!-- 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为WARN，则低于WARN的信息都不会输出，大小写无关-->
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
     </root>

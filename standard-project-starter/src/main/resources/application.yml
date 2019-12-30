@@ -7,7 +7,7 @@ spring:
   datasource:
     username: root
     password: xinyu2
-    url: jdbc:mysql://192.168.145.128:3306/xinyu_test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    url: jdbc:mysql://192.168.145.129:3306/xinyu_test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     initialSize: 5
@@ -25,7 +25,7 @@ spring:
     filters: stat
     logSlowSql: true
   redis:
-    host: 192.168.145.128
+    host: 192.168.145.129
     port: 6379
     password: xinyu1
     database: 0

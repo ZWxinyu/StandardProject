@@ -57,11 +57,11 @@ public class DictCodeVo implements Serializable{
     private Long updateBy;
 
     @ApiModelProperty("创建时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")  //配置了统一处理处理（webConfiguration.java）
     private LocalDateTime createTime;
 
     @ApiModelProperty("更新时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
 
     @ApiModelProperty("版本号")

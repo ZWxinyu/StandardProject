@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 /**
  *@Author xinyu
@@ -18,4 +19,7 @@ public class QueryForm {
     @ApiModelProperty(value="字典编码",required = true)
     @NotNull
     private String dictCode;
+
+    @ApiModelProperty(value="创建时间")
+    private LocalDateTime createDate;
 }
