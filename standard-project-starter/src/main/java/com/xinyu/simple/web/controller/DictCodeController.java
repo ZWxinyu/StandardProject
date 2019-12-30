@@ -58,7 +58,7 @@ public class DictCodeController {
     @PostMapping("/queryDictBycode")
     @ResponseBody
     @ApiOperation("根据编码查询字典数据")
-    //@Cacheable(cacheNames = {"queryDictBycode"},key = "#form.dictCode")
+    @Cacheable(cacheNames = {"queryDictBycode"},key = "#form.dictCode")
     @NoLogin
     public ResponseVo<List<DictCodeVo>> queryDictBycode(@RequestBody QueryForm form, HttpServletRequest request){
         //先对参数进行校验

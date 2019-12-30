@@ -1,5 +1,6 @@
 package com.xinyu.simple.web.controller.form;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -21,5 +22,6 @@ public class QueryForm {
     private String dictCode;
 
     @ApiModelProperty(value="创建时间")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") //配置了统一转换处理（webConfiguration.java）
     private LocalDateTime createDate;
 }
