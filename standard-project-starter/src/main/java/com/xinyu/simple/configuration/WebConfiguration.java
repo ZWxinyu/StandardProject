@@ -75,7 +75,8 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
 
 
     /**
-     *@Description springmvc接口方法中的实体类参数和json相互转换（序列化和反序列化）时，特殊类型字段的处理。针对被@ResponseBody和@RequestBody修饰的实体
+     *@Description springmvc接口方法中的实体类参数和json相互转换（序列化和反序列化）时，特殊类型字段的处理。
+     *              针对被@ResponseBody和@RequestBody修饰的实体
      **/
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
