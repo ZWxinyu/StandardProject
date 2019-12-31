@@ -55,7 +55,12 @@
      -jar：指定需要启动程序的jar包，会用到目录META-INF\MANIFEST.MF文件中指定的main主类启动
      >> ：指定应用程序控制台输出的日志文件位置
 
-
+四、包含内容：
+    ①自定义注解：@NoLogin|AuthInterceptor.java
+    ②springmvc接口参数消息转换，自定义格式化：WebConfiguration.java|MappingConverterAdapter.java
+    ③spring组件，使用注解方式进行redis环境,@Cacheable：Application.java|DictCodeServiceImpl.java
+    ④引入swagger2文档：SwaggerConfiguration.java|DictCodeController.java
+    ⑤hibernate校验器工具类：ValidateUtil.java
 
 
 
