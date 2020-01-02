@@ -179,6 +179,12 @@
         <version>2.10.0</version>
       </dependency>
 
+      <!-- 反射工具包  -->
+      <dependency>
+        <groupId>com.esotericsoftware</groupId>
+        <artifactId>reflectasm</artifactId>
+        <version>1.11.9</version>
+      </dependency>
 
 
 
