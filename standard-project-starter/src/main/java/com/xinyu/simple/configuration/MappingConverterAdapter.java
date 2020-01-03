@@ -29,6 +29,9 @@ import java.util.Date;
  *      第一：直接入参至接口方法形参字段，不封装进对象，此时作为普通请求参数传入时，通过配置Converter实现参数转换，转换用的是GenericConversionService。
  *      第二：请求content-type为application/json时，接口方法形参用实体类接收（@RequestBody），此时后端底层使用的是Json序列化Jackson工具，通过配置ObjectMapper，
  *      （MappingJackson2HttpMessageConverter）来实现Json格式数据的序列化（Serializer）和反序列化（Deserializer）；
+ *
+ *   扩展：jdk自带的序列化，本质是java对象和字节序列之间的转换，不是json化，这样的好处是更省存储空间，但是不方面可视化。
+ *          jdk实现序列化和反序列化的类为：对象输入流（ObjectInputStream）和对象输出流（ObjectOutputStream）
  **/
 @Configuration
 public class MappingConverterAdapter {
