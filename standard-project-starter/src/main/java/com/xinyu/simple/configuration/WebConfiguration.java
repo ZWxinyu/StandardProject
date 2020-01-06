@@ -57,7 +57,16 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
     }
 
 
-    //静态资源映射
+    /**
+     * springboot静态资源映射，默认为classpath:/static/,并推荐使用此目录作为静态资源存放地。另外支持两个配置方式：
+     *      第一种，application配置文件：
+     *          静态资源访问路径：spring.mvc.static-path-pattern=/**
+     *          静态资源映射路径：spring.resources.static-locaions=classpath:/
+     *      第二种，通过以下重写addResourceHandlers方法
+     *   注1：不建议讲静态资源文件访问目录修改成classpath：/，因为代表程序所有文件都可以被访问到
+     *   注2：访问项目文件使用classpath：/，访问服务器文件系统：file:D://abc
+     *
+     **/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
@@ -65,6 +74,7 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
     }
+
     /**
      * 配置servlet处理
      */
