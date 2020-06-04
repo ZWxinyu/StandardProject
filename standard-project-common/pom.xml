@@ -26,6 +26,11 @@
             <artifactId>reflectasm</artifactId>
         </dependency>
 
+        <!-- POI工具包  -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifaceId>
+        </dependency>
     </dependencies>
 
 
