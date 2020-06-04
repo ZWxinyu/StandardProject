@@ -104,6 +104,12 @@
       <version>2.8.6</version>
     </dependency>
 
+    <!-- POI工具包  -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>4.0.1</version>
+    </dependency>
 
     <!-- lombok 依赖 -->
     <dependency>
